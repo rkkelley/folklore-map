@@ -1,0 +1,166 @@
+.App {
+  text-align: center;
+}
+
+
+.map-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f5f5dc;
+  background-image: url('newEngland2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+}
+
+
+@keyframes waveMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -200px 0;
+  }
+}
+
+
+.title {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  font-family: 'Georgia', serif;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+
+.scroll-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 70%;
+  height: 60px;
+  padding: 6px 20px;
+  background-color: #e4dca6;
+  border-bottom: 3px solid #d2b97c;
+  border-radius: 15px 15px 0 0;
+  cursor: pointer;
+  color: #6b4c00;
+  overflow: hidden;
+  z-index: 20;
+  user-select: none;
+  transform-origin: top center;
+  transform: rotateX(60deg) scaleY(0.6);
+    transition: height 0.6s ease, padding 0.6s ease, transform 0.6s ease;
+}
+
+
+.scroll-panel.open {
+  height: 400px;
+  padding: 20px 20px;
+  cursor: auto;
+  overflow-y: auto;
+
+
+  transform: rotateX(0deg) scaleY(1);
+}
+
+
+.scroll-panel:not(.open) {
+  transform-origin: top center;
+  transform: rotateX(60deg) scaleY(0.6);
+  box-shadow: inset 0 6px 10px -4px rgba(255, 255, 255, 0.7);
+  background: linear-gradient(to bottom, #f8f1d4 0%, #e4dca6 60%);
+  border-bottom: 3px solid #d2b97c;
+  border-radius: 15px 15px 0 0;
+  height: 200px;
+  padding: 6px 20px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+
+.scroll-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: radial-gradient(circle at center, #d2b97c 50%, transparent 80%);
+  border-radius: 0 15px 15px 0;
+  pointer-events: none;
+  box-shadow: inset -3px 0 6px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+
+.scroll-panel::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: radial-gradient(circle at center, #d2b97c 50%, transparent 80%);
+  border-radius: 0 0 15px 15px;
+  pointer-events: none;
+  box-shadow: inset 3px 0 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+
+.scroll-tab {
+  font-size: 20px;
+  font-weight: bold;
+  user-select: none;
+  line-height: 28px;
+}
+
+
+.scroll-content {
+  margin-top: 10px;
+  font-size: 1rem;
+  line-height: 1.4;
+  white-space: pre-line;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.3s;
+  max-height: 0;
+  overflow: hidden;
+}
+
+
+.scroll-panel.open .scroll-content {
+  opacity: 1;
+  max-height: 1000px;
+}
+
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 20px;
+  background-color: #d2b97c;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #5a4200;
+  user-select: none;
+  font-size: 14px;
+}
+
+
+.close-btn:hover {
+  background-color: #c1ab6e;
+}
+
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 6px #d2b97c; }
+  50% { box-shadow: 0 0 15px #f8f1d4; }
+}
