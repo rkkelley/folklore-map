@@ -1,1 +1,1 @@
-This project uses React to make a New England Folklore map, with clickable dots which then gives a description of the specific piece of folklore. 
+This project uses React to make a New England Folklore map, with clickable dots which then gives a description of the specific piece of folklore. Here is the link to the site: https://rkkelley.github.io/folklore-map/
